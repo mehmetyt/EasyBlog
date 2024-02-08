@@ -1,0 +1,23 @@
+﻿@model Post
+@{
+	ViewData["Title"] = Model.Title;
+}
+
+<article>
+	<!-- Post header-->
+	<header class="mb-4">
+		<!-- Post title-->
+		<h1 class="fw-bolder mb-1">@Model.Title</h1>
+		<!-- Post meta content-->
+		@* <div class="text-muted fst-italic mb-2">Posted on January 1, 2023 by Start Bootstrap</div> *@
+		<!-- Post categories-->
+		<a class="badge bg-secondary text-decoration-none link-light" asp-controller="Home" asp-action="Index" asp-route-cid="@Model.Category.Id">@Model.Category.Name</a>
+	</header>
+	<!-- Preview image figure-->
+	<figure class="mb-4"><img class="img-fluid rounded post-image" src="~/img/posts/@Model.Image" alt="@Model.Title"/></figure>
+	<!-- Post content-->
+	<section class="mb-5">
+		@Html.Raw(Model.Content)
+	</section>
+</article>
+
